@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+{% block content %}
+
+	<div class='row text-center'>
+
+		<div class='col-md-4 text-center' id='current'>
+			<div class='panel panel-default'>
+				<div class='panel-heading'>{{ current['date'] }} - {{ current['city'] }}, {{ current['country_code'] }}</div>
+				<div class='panel-body' id='temp'>{{ current['temp']['temp']|round|int }}°</div>
+			<ul class='list-group'>
+				<li class='list-group-item'>Max temperature: {{ current['temp']['temp_max']|round|int }}°</li>
+				<li class='list-group-item'>Min temperature: {{ current['temp']['temp_min']|round|int }}°</li>
+				<li class='list-group-item'>Status: {{ current['status'] }}</li>
+				<li class='list-group-item'><img src="{{ current['icon'] }}" alt='weather_icon'></li>
+				<li class='list-group-item'>Detail: {{ current['detail']|capitalize() }}</li>
+			</ul>
+			</div>
+		</div>
+
+		<div class='col-md-8' id='forecast'>
+			<div class='panel-group' id='accordion' role='tablist' aria-multiselectable='true'>
+				{% for key in forecast.keys() %}
+					<div class='panel panel-default'>
+						<div class='panel-heading' role='tab' id='{{ key }}_id'>
+							<h4 class='panel-title'>
+								<a href="#{{ key }}" aria-expanded="false" role='button' data-toggle='collapse' data-parent='#accordion' aria-controls='{{ key }}'>{{ forecast[key][0] }}</a>
+							</h4>
+						</div>
+						<div class='panel-collapse collapse' role='tabpanel' id='{{ key }}' aria-labelledby='{{ key }}_id'>
+							<table class='table table-responsive'>
+								<tr>
+									<th></th>
+									<th>Morning</th>
+									<th>Noon</th>
+									<th>Afternoon</th>
+									<th>Night</th>
+								</tr>
+								<tr>
+										<td><b>Temperature</b></td>
+										{% for n in range(1,5) %}
+											<td class='temp2'>{{ forecast[key][n]['temp']['temp']|round|int }}°</td>
+										{% endfor %}
+								</tr>
+								<tr>
+										<td><b>Status</b></td>
+										{% for n in range(1,5) %}
+											<td>{{ forecast[key][n]['status'] }}</td>
+										{% endfor %}
+								</tr>
+								<tr>
+										<td></td>
+										{% for n in range(1,5) %}
+											<td><img src="{{ forecast[key][n]['icon'] }}" alt='weather_icon'></td>
+										{% endfor %}
+								</tr>
+								<tr>
+										<td><b>Detail</b></td>
+										{% for n in range(1,5) %}
+											<td>{{ forecast[key][n]['detail']|capitalize() }}</td>
+										{% endfor %}
+								</tr>
+							</table>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+

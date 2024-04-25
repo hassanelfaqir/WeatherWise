@@ -1,0 +1,115 @@
+html {
+	height: 100%;
+	width: 100%;
+}
+
+.container{
+	background-color: rgba(89, 216, 216, 0.253);
+	position: fixed;
+	margin: 20rem 35rem 20rem;
+	border-radius: 10px;
+}
+.container1{
+	background-color: rgba(250, 235, 215, 0.322);
+	margin-top: 0px;
+	border-radius: 10px;
+	text-align: center;
+}
+body {
+	
+	background: url(images/Untitled.jpeg);
+	height: 100%;
+	margin: 0;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+.container-fluid{
+	background-color: rgba(240, 226, 245, 0.438);
+	border-radius: 10px;
+
+}
+
+.navbar-default {
+	background-color: rgba(255, 255, o, 0.9);
+	border: none;
+}
+
+.form-group label {
+	color: rgb(22, 21, 21);
+}
+
+#main h1 {
+	font-family: 'Roboto', serif;
+	font-size: 6em;
+	color: white;
+}
+
+#main p {
+	color: rgb(230, 255, 255);
+	font-size: 1.8em;
+	font-family: 'Roboto', serif;
+}
+
+.row {
+	color: rgb(51, 51, 51);
+	margin-top: 5%;
+}
+
+#current .panel-heading {
+	font-size: 1.4em;
+}
+
+#current #temp {
+	font-size: 5em;
+}
+
+#forecast .table {
+	table-layout: fixed;
+}
+
+#forecast .table th {
+	text-align: center;
+}
+
+#forecast h4 a {
+	font-size: 1.65em;
+}
+
+.temp2 {
+	font-size: 3em;
+}	
+
+@-moz-document url-prefix() {
+  fieldset { display: table-cell; }
+}
+
+/* jQuery UI customization */
+
+.ui-autocomplete { 
+	position: absolute; 
+	cursor: default;
+	max-height: 100px;
+  overflow-y: auto;
+  /* prevent horizontal scrollbar */
+  overflow-x: hidden;
+} 
+
+.ui-autocomplete-loading { 
+	background: url('images/loading.gif') right center no-repeat; 
+}
+
+
+/* css for small screens */
+
+@media only screen and (max-width: 768px) {
+	#main h1 {
+		font-size: 3.5em;
+	}
+
+	#main p {
+		font-size: 1.5em;
+		margin-bottom: 15%;
+	}
+}
+
